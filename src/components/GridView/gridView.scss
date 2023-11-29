@@ -175,6 +175,10 @@
         border: 1.5px solid #2D6CE1;
         transition: border 0.2s ease-in;
 
+        .new {
+          opacity: 0;
+        }
+
         .hover__card {
           opacity: 1;
           transform: translateY(0);
