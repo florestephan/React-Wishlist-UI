@@ -1,0 +1,36 @@
+.deletion {
+  margin-bottom: 16px;
+
+  .container__title-cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+
+    }
+
+    .delete__cta {
+      cursor: pointer;
+      background: rgba(237, 98, 115, 0.15);
+      color: var(--red-color-btn);
+      display: flex;
+      height: 32px;
+      padding: 0px 8px;
+      justify-content: center;
+      align-items: center;
+      font-size: var(--size-13);
+      border: 1px solid var(--red-color-btn);
+      border-radius: 6px;
+      transition: background-color 0.2s ease-in-out;
+
+      &:hover {
+        background: rgba(237, 98, 115, 0.25);
+      }
+
+      &:active{
+        background: rgba(237, 98, 115, 0.15);
+      }
+    }
+  }
+}

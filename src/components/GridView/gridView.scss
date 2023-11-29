@@ -1,0 +1,258 @@
+.title--count {
+  font-size: var(--size-18);
+  font-weight: 600;
+  color: #EEE;
+  text-align: left;
+
+  span {
+    font-weight: 400;
+    color: var(--grey-color-count);
+  }
+}
+
+.movies--container {
+
+
+  .gridWrap {
+    gap: 16px;
+
+    li {
+      overflow: hidden;
+      padding: 8px 8px 12px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      grid-column: span 2;
+      position: relative;
+
+      opacity: 0;
+      animation-name: opacityMount;
+      animation-fill-mode: forwards;
+      animation-duration: 0.7s;
+      animation-delay: 0.2s;
+
+      @for $i from 1 through 50 {
+        &:nth-child(#{$i}) {
+          animation-delay: 0.2s + 0.1s * ($i - 1);
+        }
+      }
+
+      @keyframes opacityMount {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .new {
+        opacity: 1;
+        transition: opacity 0.4s ease-in-out;
+        z-index: 10;
+        background: var(--red-color-new);
+        text-transform: uppercase;
+        color: white;
+        position: absolute;
+        right: 0;
+        padding: 0px 4px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: var(--size-10);
+        top: 16px;
+      }
+
+      .img--block {
+        position: relative;
+
+        img {
+          border-radius: 3px;
+          aspect-ratio: 143/192;
+          width: 100%;
+          height: auto;
+          position: relative;
+        }
+
+        label {
+          position: absolute;
+          top: 8px;
+          left: 8px;
+          width: 16px;
+          height: 16px;
+          background: var(--black-color-checkbox);
+          z-index: 10;
+          border-radius: 2px;
+
+          input[type="checkbox"] {
+            cursor: pointer;
+            margin: 0;
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+
+            &:checked {
+
+              transition: all 0.3s ease-in-out;
+              opacity: 1;
+              background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="2" fill="%232D6CE1"/><path d="M6.3975 9.93746L4.3125 7.85246L3.6025 8.55746L6.3975 11.3525L12.3975 5.35246L11.6925 4.64746L6.3975 9.93746Z" fill="%23EFEFEF"/></svg>') no-repeat;
+            }
+          }
+        }
+
+        .container--quality {
+          position: absolute;
+          left: 8px;
+          bottom: 10px;
+          border-radius: 6px;
+          background: rgba(194, 194, 214, 0.06);
+          backdrop-filter: blur(6px);
+          height: 20px;
+          padding: 0 4px;
+          z-index: 10;
+          display: flex;
+          align-items: center;
+
+          .quality {
+            line-height: 16px;
+            display: block;
+            font-size: var(--size-11);
+            color: white;
+            font-weight: 500;
+          }
+        }
+      }
+
+      h3 {
+        padding-left: 4px;
+        padding-top: 12px;
+        text-align: left;
+        font-size: var(--size-15);
+        font-weight: 600;
+        color: var(--whiteTxt-color-new);
+        transition: opacity 0.2s ease-in-out;
+      }
+
+      .hover__card {
+        padding-left: 12px;
+        padding-top: 10px;
+        bottom: 0;
+        height: 12vh;
+        left: 0;
+        right: 0;
+
+        z-index: 20;
+        position: absolute;
+        transform: translateY(100%);
+        opacity: 0;
+        transition: all 1.3s cubic-bezier(0.22, 1, 0.36, 1);
+        border-radius: 0px 0px 6px 6px;
+        background: linear-gradient(180deg, rgba(26, 26, 38, 0.00) 0%, rgba(26, 26, 38, 0.9) 18%, #1A1A26 38.04%, #1A1A26 100%);
+        //background: linear-gradient(180deg, rgba(26, 26, 38, 0.00) 0%, rgba(26, 26, 38, 0.9) 5%, #1A1A26 38.04%, #1A1A26 100%);
+
+        .category {
+          display: flex;
+          align-items: center;
+          font-size: var(--size-11);
+          margin-top: 10px;
+          padding: 0 4px;
+          line-height: 16px;
+          color: var(--blue-color-new);
+          text-align: left;
+          width: fit-content;
+          height: 20px;
+          border-radius: 6px;
+          background: rgba(45, 108, 225, 0.15);
+        }
+
+      }
+
+      &:has(input[type=checkbox]:checked) {
+        border: 1.5px solid #2D6CE1;
+        transition: border 0.2s ease-in;
+
+        .hover__card {
+          opacity: 1;
+          transform: translateY(77%);
+
+          h3 {
+            opacity: 1;
+          }
+        }
+
+        h3 {
+          opacity: 0;
+        }
+      }
+
+      &:hover {
+        h3 {
+          opacity: 0;
+        }
+
+        .new {
+          opacity: 0;
+        }
+
+        .hover__card {
+          opacity: 1;
+          transform: translateY(0);
+
+          h3 {
+            opacity: 1;
+          }
+        }
+
+        .img--block {
+
+          label {
+            background: var(--hover-checkbox);
+
+            input[type="checkbox"] {
+
+              &:checked {
+                background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><rect width="16" height="16" rx="2" fill="%232D6CE1"/><path d="M6.3975 9.93746L4.3125 7.85246L3.6025 8.55746L6.3975 11.3525L12.3975 5.35246L11.6925 4.64746L6.3975 9.93746Z" fill="%23EFEFEF"/></svg>') no-repeat;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    .gridWrap {
+      li {
+        grid-column: span 3;
+      }
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .gridWrap {
+      li {
+        grid-column: span 4;
+      }
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .gridWrap {
+      li {
+        grid-column: span 6;
+      }
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .gridWrap {
+      li {
+        grid-column: 1/13;
+      }
+    }
+  }
+}

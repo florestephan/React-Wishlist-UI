@@ -1,0 +1,115 @@
+.section__header {
+  display: flex;
+  margin-bottom: 8px;
+  justify-content: space-between;
+
+  h1 {
+    text-align: left;
+    color: white;
+    font-size: var(--size-h1);
+    font-weight: 700;
+  }
+
+
+  .left__content {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    .search-container {
+      position: relative;
+      height: 40px;
+      width: 172px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      border-top: 1px solid rgba(194, 194, 214, 0.10);
+      background: rgba(194, 194, 214, 0.06);
+      border-radius: 6px;
+
+      input {
+        padding: 0 35px 0 12px;
+        position: absolute;
+        inset: 0;
+        color: white;
+        height: 100%;
+      }
+
+      button {
+        padding-right: 12px;
+        border: 0;
+        background: none;
+      }
+    }
+
+    .addMovie-cta {
+      cursor: pointer;
+      color: white;
+      border-radius: 6px;
+      background: var(--blue-color-new);
+      border-top: 1px solid rgba(255, 255, 255, 0.10);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      transition: opacity 0.2s ease-in-out;
+
+      &:active {
+        opacity: 0.9;
+      }
+
+      button {
+        padding: 0px 12px;
+        font-size: 13px;
+      }
+    }
+
+    .switchView-cta {
+      cursor: pointer;
+      display: flex;
+      height: 40px;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        display: block;
+      }
+
+      .grid__column {
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        border: 1.5px solid rgba(194, 194, 214, 0.06);
+
+      }
+
+      .grid__row {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        border-top: 1.5px solid rgba(194, 194, 214, 0.06);
+        border-right: 1.5px solid rgba(194, 194, 214, 0.06);
+        border-bottom: 1.5px solid rgba(194, 194, 214, 0.06);
+      }
+
+      .grid__column, .grid__row {
+        padding: 0 12px;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+
+        &.active {
+          border-top: 1px solid rgba(194, 194, 214, 0.10);
+          background: rgba(194, 194, 214, 0.06);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+}

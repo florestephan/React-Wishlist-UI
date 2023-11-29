@@ -1,0 +1,49 @@
+:root {
+    font-family: Inter, system-ui, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+
+    --main-bg-color: #101018;
+    --red-color-new: #B4143A;
+    --red-color-btn: #ED6273;
+    --blue-color-new: #2D6CE1;
+    --whiteTxt-color-new: #EFEFEF;
+    --black-color-checkbox: #1C1C1C;
+    --grey-color-count: #8F8FA3;
+    --hover-checkbox: rgba(255, 255, 255, 0.50);
+    --size-h1: 32px;
+    --size-18: 18px;
+    --size-15: 15px;
+    --size-13: 13px;
+    --size-11: 11px;
+    --size-10: 10px;
+
+    @media screen and (max-width: 900px) {
+        --size-h1: 22px;
+        --size-18: 15px;
+        --size-15: 13px;
+        --size-13: 11px;
+        --size-11: 10px;
+        --size-10: 10px;
+    }
+}
+
+a {
+    text-decoration: none;
+    text-decoration: inherit;
+}
+
+
+body {
+    margin: 60px auto;
+    background: var(--main-bg-color);
+    min-height: 100vh;
+}
+
+.gridCtn {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-gap: 30px;
+}

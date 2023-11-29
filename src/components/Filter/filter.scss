@@ -1,0 +1,35 @@
+.section__category {
+  flex-wrap: wrap;
+  display: flex;
+  gap: 8px;
+  margin-bottom: 34px;
+
+  li {
+    color: white;
+    font-weight: 600;
+    border-radius: 6px;
+    border: 1px solid rgba(194, 194, 214, 0.10);
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 8px;
+    height: 32px;
+    gap: 5px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      border: 1px solid rgba(194, 194, 214, 0.20);
+      background-color: rgb(194, 194, 214, 0.15);
+    }
+
+    &.active {
+      background-color: var(--blue-color-new);
+    }
+
+    &:active {
+      background-color: var(--blue-color-new);
+    }
+  }
+}
